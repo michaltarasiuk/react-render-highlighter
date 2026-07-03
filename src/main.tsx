@@ -1,5 +1,4 @@
 // bippy must be imported BEFORE react to install the React DevTools global hook
-import "bippy";
 import { getDisplayName, instrument, secure, traverseRenderedFibers } from "bippy";
 
 import { StrictMode } from "react";
