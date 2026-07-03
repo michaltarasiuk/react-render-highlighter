@@ -25,7 +25,7 @@ function Label({ count }: LabelProps) {
 function App() {
   const [count, setCount] = useState<number>(0);
 
-  const increase = useCallback((): void => {
+  const increase = useCallback(() => {
     setCount((c) => c + 1);
   }, []);
 
