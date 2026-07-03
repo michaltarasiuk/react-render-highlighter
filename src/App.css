@@ -1,3 +1,10 @@
+.label {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text);
+}
+
 .counter {
   display: inline-flex;
   margin-bottom: 24px;

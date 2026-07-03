@@ -1,13 +1,38 @@
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import "./App.css";
 
+interface ButtonProps {
+  onIncrease: () => void;
+}
+
+const Button = memo(function Button({ onIncrease }: ButtonProps) {
+  return (
+    <button type="button" className="counter" onClick={onIncrease}>
+      Increase
+    </button>
+  );
+});
+
+interface LabelProps {
+  count: number;
+}
+
+function Label({ count }: LabelProps) {
+  return <p className="label">Count is {count}</p>;
+}
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
+
+  const increase = useCallback((): void => {
+    setCount((c) => c + 1);
+  }, []);
 
   return (
-    <button type="button" className="counter" onClick={() => setCount((count) => count + 1)}>
-      Count is {count}
-    </button>
+    <>
+      <Label count={count} />
+      <Button onIncrease={increase} />
+    </>
   );
 }
 
